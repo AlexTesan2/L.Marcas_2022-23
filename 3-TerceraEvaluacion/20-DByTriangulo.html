@@ -1,0 +1,37 @@
+<html>              <!--Crear foco de luz en el centro del color-->
+    <head>
+        <title>Leer datos SQLite</title>
+        <script type="application/javascript">
+            function leer(){
+                var db = openDatabase('Triangulos', '1.0', 'Comentario sobre DB', 2 * 1024 * 1024);
+                db.transaction(function(tx) {
+                    tx.executeSql("DROP DATABASE IF EXISTS PUNTOS");
+                    tx.executeSql("CREATE TABLE IF NOT EXISTS PUNTOS(posx, posy)");
+                    tx.executeSql("INSERT INTO PUNTOS VALUES (45,67)");
+                    tx.executeSql("INSERT INTO PUNTOS VALUES (12,3)");
+                    tx.executeSql("INSERT INTO PUNTOS VALUES (99,56)");
+                    tx.executeSql("SELECT * FROM PUNTOS", [], function(tx, resultados){
+                        alert("llega");
+                        var canvas = document.getElementById("canvas");
+                        if(canvas.getContext){
+                            alert("llega");
+                            var ctx = canvas.getContext("2d");
+                            ctx.beginPath();
+                            ctx.moveTo(resultados.rows.item(0).posx, resultados.rows.item(0).posx);
+                            var len=resultados.rows.length;
+                            for(i=0;i<len;i++){
+                                ctx.lineTo(resultados.rows.item(i).posx, resultados.rows.item(i).posy);
+                            }
+                            ctx.closePath();
+                            ctx.stroke();
+                        }
+                    },null);
+                });
+            }
+        </script>
+    </head>
+
+    <body onload="leer()">
+        <canvas id="canvas" width="150" height="150"></canvas>
+    </body>
+</html>

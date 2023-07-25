@@ -1,0 +1,49 @@
+
+<html>
+    <head>
+    
+        <title>moverOBJETOS</title>
+        <style type="text/css">
+            #jose{position:absolute; left:100 ;top: 200}
+            #circulo{position: absolute ; left: 500; margin-top:  400;}
+
+
+        </style>
+
+    
+        <script language="JavaScript">
+            objeto=null;
+            ejez = 2;
+            function cargar(){
+                if(event.scrEvent.tagName=="IMGS"){
+                objeto=event.srcElement;
+                objeto.style.zIndex= ejez;
+                ejez++;
+                }
+            }
+            function mover(){
+                if(objeto != null){
+                objeto.style.left=event.x-50;
+                objeto.style.top=event.y-50;
+                }
+            }
+            function soltar(){
+                objeto= null;
+            }
+
+
+  
+        </script>
+    
+</head>
+    <body onmousedown="cargar()" onmouseup = "soltar()" bgcolor="yellow" onmousemove="mover(); event.returnValue=false">
+        
+        <img  class="IMGS" id= "jose"src="imagenes/fondo4.jpg" height="100">
+        <img  class="IMGS" id ="circulo "src="imagenes/fondof.jpg" height="100">
+
+    </body>
+    </html>
+    <!--mouseDown aprietas el raton izda   mouseUp sueltas el dedo mucho no funciona-->
+    <!--objeto.style.zIndex= ejez;
+                ejez++-->
+                <!--event.returnValue=false-->

@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Codigo Ascii</title>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script language='JavaScript'>
+
+            $(document).ready(function(){
+
+                $("#escribe").keydown(function(event){
+                    $("#escribe").val("");
+                    $("#parrafo").text("El codigo de la tecla "+ String.fromCharCode(event.which)+" es "+event.which);//muestra el valor de la tecla en codigo ascii
+
+                });
+                $("#escribe").keyup(function(event){
+                    $("#parrafo").text("Acabas de soltar la tecla");
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+        <p>
+            <input type="text" id="escribe">
+        </p>
+        <p id="parrafo">
+            Manten pulsada la tecla y despues sueltala
+        </p>
+
+    </body>
+</html>

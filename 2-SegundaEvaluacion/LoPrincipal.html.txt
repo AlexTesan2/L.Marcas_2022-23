@@ -1,0 +1,133 @@
+                $("#Ocultar").click(function(event){
+                    $("#rectangulo").slideUp(4000);
+                });
+
+                $("#texto").text("Buenos días Caballeros!!!");//text = inner.text
+
+                $("#texto2").html("<input type=button value=Hola>"); //html = innerHTML
+
+                $(document).mousemove(function(event){ //mousemove = onmousemove
+                    $("#texto3").text(event.clientX + " - " + event.clientY);
+                });
+
+                $("#MoverD").click(function(event){
+                    $("body").animate({backgroundPositionX: "5000px"},10000); //possicion a la que se mueve, tiempo
+                });
+                $("#ampliar").click(function(){
+                    $("#capa0").animate({outlineWidth:"15px"});
+                });
+            x=$(document);          
+            x.ready(inicializaEventos);
+
+            function inicializaEventos(){
+                var objetos = $("a");           //se refiere a los objetos de la marca a, objetos es un vector
+                objetos.mouseover(entrarMouse); //no se ejecuta 1º , se guarda en memoria y cuando se produce el evento se ejeuta 
+                objetos.mouseleave(salirMouse);
+            }
+
+            function entrarMouse(){
+                $(this).css("background-color" , "#FF0");//se refiere al objeto sobre el que se ha producido el evento
+            }
+
+            function salirMouse(){
+                $(this).css("background-color" , "#FFFFFF");
+            }
+                $(document).on("contextmenu", function(e){//inavilitamos raton derecha y avisamos de su uso
+                    e.preventDefault();
+                    $("#divEstado").html("<strong>Click derecho</strong>");
+                });
+
+                $("#ocultar").click(function(event){
+                    $("#rectangulo").fadeOut(2000);
+                });
+                    $("div").animate({height:'100px', opacity: '0.4'},"slow");
+                    $("div").animate({left :'300px'},"slow");
+                    $("div").animate({fontSize :'3em'},4000);//cambiar tamaño de la letra
+                    $("div").animate({height :'200px', opacity: '0.8'},"slow");
+                $("#divAnimado1").animate({marginLeft:'600px'}, 2000);
+                $("#divAnimado2").animate({width: '250px', height: '250px'}, 2000);                $("#div1").append($("<input>").
+                                    attr("class", "boton").
+                                    attr("value", "Hola").
+                                    attr("type", "button"));
+
+
+                $("#div2").append($("<button>").
+                                    attr("class", "boton").
+                                    text("Probado"));
+    var imagen = $("<img>", {src:"im/apache.jpg", id:"imagen",
+                            css:{"padding":"2px", "cursor":"pointer", "height":"200px"},
+                            click:function(e){document.location="20-MenuAvanzado.html";}
+                });
+ 
+    $(document).ready(function(){
+        $("#boton").click(function(){
+
+            $("body").append($(imagen))
+        });
+    });
+
+            div{background-color: tomato; transition:background-color 5s ease}
+            div:hover{background-color: chartreuse;}
+
+            div{background-color: tomato; padding: 10; transition: all 5s ease;}
+            div:hover{background-color: chartreuse; padding: 50px;}
+            #primero:hover .primero{display: block; text-align: right; padding: 30px;}
+            #segundo:hover .segundo{display: block; background-color:lime;}
+                $("#Desaparecer").click(function(event){
+                    $(".imagen").hide(4000);
+                    $("#v").hide(4000);
+                });
+
+                $("#boton").click(function(event){      //profe suele poner ejercicios de tipo al acabar una funcion , empieza otra 
+                    $("#caja").slideUp(300, function(){
+                        $("#caja").slideDown(300);
+                        $("#caja").slideUp(300);
+                        $("#caja").slideDown(2000, function(){
+                            $("#caja").css({width : "500px", height : "30px"})
+                            $("#clon").css({display: "block"})
+                        });
+                        $("#caja").slideUp(2000, function(){
+                            $("#caja").css({width : "200px", height : "15px", backgroundColor: "green", color:"red" });
+                        });
+                        $("#caja").slideDown(3000);
+                        $("#caja").slideUp(900, function(){
+                            $("#caja").css({backgroundColor: "yellow", color:"blue" })
+                            $("#clon").css({display: "none"})
+                        });
+                        $("#caja").slideDown(300);
+            $(document).ready(function(event){
+                $(".contenedor div").hide();
+                $(".contenedor div:first").show();
+                $("ul.tabs li:first").addClass("activa");
+
+               $("ul.tabs li").click(function(){ /* $->Objeto / Elementos de lista(list elemets), de la clase tabs, en una lista desordenada*/
+                    $("ul.tabs li").removeClass("activa");
+                    $(this).addClass("activa");
+                    $(".contenedor div").hide();
+                    var parrafoAActivar = $(this).find("a").attr("href");
+                    $(parrafoAActivar).show();
+            $(document).ready(function(event){
+
+                $("#next").click(function(event){
+                    $("#galeria li:first").appendTo("#galeria");/*Coje el primer elemento y lo pone al final*/
+                });
+
+                $("#before").click(function(event){
+                    $("#galeria li:last").prependTo("#galeria");
+                }
+            $(document).ready(function(event){
+
+                var veces=0;
+                $("#galeria div:gt(0)").hide();     /*aplicar (ocultar) a todos(gt) excepto al elemento 0, sobre parrafos div q esten en galeria*/
+                setInterval(function(){
+                    $("#galeria div:first-child").fadeOut()
+                    .next("div").fadeIn(1000)
+                    .end().appendTo("#galeria");
+
+                }, 4000);
+                
+
+            });
+                    $("#semaforo div").animate({opacity:'0'}, 1000);   //Todos los parrafos div del semaforo se oscurecen
+                    $("#divAnimado" +actual).animate({opacity:'1'}, 1000)
+

@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Desplazar la cruz</title>
+        <style type="text/css">
+            #cruz{position: absolute;top: 200px}
+        </style>
+
+        <script language="JavaScript">
+            var n = 100;
+            function mover(){
+                n += 10;
+                cruz.style.left=n;
+            }
+        </script>
+    </head>
+    <body background="imagenes/fondof.jpg">    <!-- <body onload="setInterval 'mover()'; 200)"  >-->
+        <div id="cruz" style="left: 100"><img src="imagenes/cruz.jpg" height="100"></div>
+        <input type="button" value="Desplaza" onclick="mover()">
+    </body>
+</html>

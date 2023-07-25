@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Estilos y persianas</title>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script>
+            $(document).ready(function(event){
+
+                $("#caja").css({
+                    width : "200px",
+                    height : "15px",
+                    backgroundColor: "yellow",
+                    borderStyle: "Solid",
+                    borderWidth :"3px",
+                    fontFamily: "Verdana", 
+                    padding: "20px",
+                    fontSize: "12px", 
+                    textAlign : "center",
+                    color:"blue"
+                });
+
+                $("#clon").css({
+                    display: "none",
+                    width: "500px",
+                    height : "300px", 
+                    padding: "30px",
+                });
+
+                $("#boton").click(function(event){      //profe suele poner ejercicios de tipo al acabar una funcion , empieza otra 
+                    $("#caja").slideUp(300, function(){
+                        $("#caja").slideDown(300);
+                        $("#caja").slideUp(300);
+                        $("#caja").slideDown(2000, function(){
+                            $("#caja").css({width : "500px", height : "30px"})
+                            $("#clon").css({display: "block"})
+                        });
+                        $("#caja").slideUp(2000, function(){
+                            $("#caja").css({width : "200px", height : "15px", backgroundColor: "green", color:"red" });
+                        });
+                        $("#caja").slideDown(3000);
+                        $("#caja").slideUp(900, function(){
+                            $("#caja").css({backgroundColor: "yellow", color:"blue" })
+                            $("#clon").css({display: "none"})
+                        });
+                        $("#caja").slideDown(300);
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <input type="button" id="boton" value="Empezar">
+        <div id="caja" > Bienvenidos a la 501</div> 
+        <img src="im/clon.jpg" id="clon">                        <!--id es para este codigo, pero si quiero llamar al objeto en otro archivo debo usar name-->
+    </body>
+</html>

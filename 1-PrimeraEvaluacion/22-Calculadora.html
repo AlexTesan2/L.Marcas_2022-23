@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title></title>
+        <style type='text/css'>
+            
+        </style>
+        <script language='JavaScript'>
+            function calcular(){
+                var resultado=0;
+                switch(operador.value){
+                    case"1":
+                        resultado.innerHTML=parseInt(num.value)+parseInt(num2.value);
+                        break;
+                    case"2":
+                        resultado.innerHTML=parseInt(num.value)-parseInt(num2.value);
+                        break;
+                    case"3":
+                        resultado.innerHTML=parseInt(num.value)*parseInt(num2.value);
+                        break;
+                    case"4":
+                        resultado.innerHTML=parseInt(num.value)/parseInt(num2.value);
+                        break;
+                }
+
+            }
+            
+        </script>
+    </head>
+
+    <body>
+        <h1 align='center'>Calculatrize</h1>
+        <table align='center'border=10>
+            <tr>
+                <td><input type="text" size="20" maxlength="20" id="num"></td>
+                <td><select name="operador">
+                    <option value="1" selected>+</option>
+                    <option value="2">-</option>
+                    <option value="3">*</option>
+                    <option value="4">/</option>
+                </select></td>
+                <td><input type="text" size="20" maxlength="20" id="num2"></td>
+                <td><input type="button" value="=" onclick="calcular()"></td>
+                <td><input id="resultado" width="100"></td>
+            </tr>
+    </body>
+</html>

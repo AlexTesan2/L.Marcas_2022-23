@@ -1,0 +1,91 @@
+<!--ejercicio15-->
+<html>
+<head>
+
+    <title>Pagia de los numeros</title>
+    <style type="text/css">
+        div{position:absolute;}
+        a{font-family: sans-serif; font-weight: bold; text-decoration: none; font-size: 62;}
+        #cero{color:red}
+        #uno{color:aquamarine}
+        #dos{color:chocolate}
+        #tres{color:aqua}
+        #cuatro{color:darkgreen}
+        #cinco{color:darkmagenta}
+        h3{color: firebrick;font-family: sans-serif; text-align: center; margin-top: 5 ;margin-bottom: 5;}
+        .pregunta{position :absolute; left: 150; top:80; width: 300; height: 200; border-width: 6;border-style: groove; border-color: lime ; margin-top: 10; }
+        p{margin-left: 10; margin-right: 10;text-align: justify; font-size: 12;font-family: Arial; font-weight: bold;}
+        
+
+
+
+    </style>
+    <script language="JavaScript">
+        var actual =1;
+        var respuestas=[7,8,2,0];
+        function pasar(){
+
+            if(((event.key=='s')||(event.key =='S'))&&(actual<6)){
+                
+                document.getElementById("pagina"+ actual).style.visibility="hidden";
+                actual++;
+                document.getElementById("pagina"+ actual).style.visibility="visible";
+                
+            }
+            if((event.key=='a')||(event.key =='A')){
+                if(actual>1){
+                    document.getElementById("pagina"+ actual).style.visibility="hidden";
+                    document.getElementById("pagina"+ (actual-1)).style.visibility="visible";
+                    actual--;
+                }
+            }
+            
+        }
+
+        function cotejar(numero){
+            var aciertos=[0,0,0,0];
+            if(numero == respuestas[actual-3]){
+                alert("Has hacertado");
+                aciertos[actual-3]=1;
+                i=0;
+                while((i<aciertos.length)&&(aciertos[i]==1))
+                    i++;
+                if(i==4){
+                    alert("Eres un campeón");
+                }    
+
+
+            }else
+                alert("Has fallado");
+        }
+
+
+    </script>
+</head>
+<body onkeypress="pasar()">
+    <div style="left: 200; top:15"> <a href="" id="cero" onclick="cotejar(0); return false">0</a></div>
+    <div style="left: 110; top: 70"> <a href="" id="uno" onclick="cotejar(1); return false">1</a></div>
+    <div  style="left: 100; top: 125"> <a href="" id="dos"onclick="cotejar(2); return false">2</a></div>
+    <div  style="left: 500; top: 150"> <a href="" id="tres"onclick="cotejar(3); return false">3</a></div>
+    <div  style="left: 330; top: 300"><a href="" id="cuatro"onclick="cotejar(4); return false">4</a></div>
+    <div  style="left: 90; top: 230"><a href="" id="cinco"onclick="cotejar(5); return false">5</a></div>
+    <div style="left: 300; top: 20"><a href="" id="seis"onclick="cotejar(6); return false">6</a></div>
+    <div  style="left: 520; top: 250"><a href="" id="siete"onclick="cotejar(7); return false">7</a></div>
+    <div style="left: 450; top: 18"><a href="" id="ocho"onclick="cotejar(8); return false">8</a></div>
+    <div style="left: 200; top: 290" ><a href="" id="nueve" onclick="cotejar(9); return false">9</a></div>
+
+
+    <div id="pagina1" class="pregunta"><h3>Bienbenido a la pagina de los numeros!</h3><p> Para cambiar a la siguiente pagina, puedes pulsar las teclas "s/S" y para pasar a la anterior utiliza las teclas "a/A" </p></div>
+
+    <div id="pagina2" class="pregunta" style="visibility:hidden">
+        <p>Para entrar en la primera página de los numeros tendrás que descubrir la combinación de acceso.</p>
+        <p>Te formularemos tres preguntas, para hallar la combinación haz clic sobre el numero que corresponda a la respuesta de cada pregunta.</p><br> <p>  Descubre la  <strong>clave</strong> de entrada</p>
+    </div>
+
+    <div id="pagina3"class="pregunta" style="visibility:hidden"><p>Tengo 18 años, restale 3, despues sumale 6 y por ultimo dividelo para tres <br> ¿Que cifra sale?</p></div>
+    <div id="pagina4"class="pregunta" style="visibility:hidden"><p>Corto una manzana por la mitad, despues cada mitad la vuelvo a cortar en dos porciones, y cada porción en otros dos trozos.<br> ¿Cuantos trozos tengo?</p></div>
+    <div id="pagina5"class="pregunta" style="visibility:hidden"><p>16 es hexadecimal, 8 es octal, entonces... <br> ¿Quien es bimario?</p></div>
+    <div id="pagina6"class="pregunta" style="visibility:hidden"><p>Me puedes muntiplicar o dividir, pero sigo siendo el mismo.</p></div>
+
+</body>
+</html>

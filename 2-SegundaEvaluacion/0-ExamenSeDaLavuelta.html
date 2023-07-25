@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <style type='text/css'>
+
+            #i1, #i2{
+                width: 200px;
+                height: 100px;
+                padding: 10px;
+            }
+
+            #i1{
+                transform: rotateY(180deg);
+            }
+
+            #i1:hover{
+                animation: animacion ease 6s forwards;
+            }
+            #i2:hover{
+                animation: animacion2 ease 6s forwards;
+            }
+
+            @keyframes animacion{
+                0%{
+                    transform: rotateY(180deg);
+                }
+                90%{
+                    transform: rotateY(0deg);
+                }
+                100%{
+                    transform: rotateY(180deg);
+                }
+            }
+
+            @keyframes animacion2{
+                0%{
+                    transform: rotateY(0deg);
+                }
+                90%{
+                    transform: rotateY(180deg);
+                }
+                100%{
+                    transform: rotateY(0deg);
+                }
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+        <td>
+            <div><img src="im/tucan.jpg" id="i1"></div>
+        </td>
+        <td>
+            <div><img src="im/tucan.jpg" id="i2"></div>
+        </td>
+    </body>
+</html>

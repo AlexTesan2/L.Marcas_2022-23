@@ -1,0 +1,26 @@
+
+<html>
+    <head>
+    
+        <title>elementos de un objeto DOCUMENT</title>
+        <style></style>
+
+    
+        <script language="JavaScript">
+            function mostrar(){
+                for(i=0;i< document.all.length; i++)
+                    alert(document.all[i].tagName);
+                for(i=0;i<document.images.length; i++)
+                alert(document.images[i].tagName);
+            }
+  
+        </script>
+    
+</head>
+    <body onload="mostrar()">
+        <img src="imagenes/fondo2.jpg" height="100">
+        <img src="imagenes/fondo3.jpg" height="100">
+
+    </body>
+    </html>
+    <!-- las partes(html,head,tittle,script,body,img) se guardan en un vector all -->

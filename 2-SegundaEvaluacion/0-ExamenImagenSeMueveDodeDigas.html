@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Indica donde mover la imagen</title>  
+        <style type='text/css'>
+            #imagen{
+                width: 80px;
+                height: 40px;
+                padding: 10px;
+                border-radius: 5%;
+                margin-top: 20px;
+                padding-left: 20px;
+            }
+        </style>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script language='JavaScript'>
+
+            (document).ready(function(){
+                
+                $(body).mousedown(function(){
+                    $("#imagen").animate({"left":event.clientX, 'top': event.clientY},1000)
+                    
+                    /*.css:{"padding":"2px", "cursor":"pointer", "height":"200px"}*/
+                });
+            });
+
+        </script>
+    </head>
+
+    <body>
+        <img src="im/fondoAzul.jpg" id="imagen">
+
+    </body>
+</html>

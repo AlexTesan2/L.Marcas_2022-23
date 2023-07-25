@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Rovin Hood</title>
+        <style type='text/css'>
+            img{position: absolute}
+            
+        </style>
+        <script language='JavaScript'>
+            function moverR(){
+                robin.style.top=event.y-75;
+            }
+            function moverF(){
+                flecha.style.left = parseInt(flecha.style.left)+19;
+                globo.style.top=parseInt(globo.style.top)-3;
+                if(parseInt (globo.style.top)<-200)globo.style.top=700;
+                if(!(((parseInt(flecha.width)+ parseInt(flecha.style.left))<parseInt(globo.style.left))
+                || (parseInt(flecha.style.left)>(parseInt(globo.width)+parseInt(globo.style.left)))
+                || (parseInt(flecha.style.top)>(parseInt(globo.height)+parseInt(globo.style.top)))
+                || ((parseInt(flecha.height)+parseInt(flecha.style.top))<parseInt(globo.style.top)))){
+                    globo.style.display="none";
+                }
+            }
+            function lanzar(){
+                flecha.style.left=80;
+                flecha.style.top=event.y-50;
+            }
+
+        </script>
+    </head>
+
+    <body onmousemove="moverR()"  onload="setInterval ('moverF()', 50)" onclick="lanzar()">    
+        <img id="robin" style="left: 20px" src="imagenes/arquero2.jpg" height="150">
+        <img id="flecha" style="left: 80px" src="imagenes/flecha2.jpg" height="20">
+        <img id="globo" style="left: 1300px;top: 700px;" src="imagenes/manzana.jpg" height="50">
+    </body>
+</html>
+

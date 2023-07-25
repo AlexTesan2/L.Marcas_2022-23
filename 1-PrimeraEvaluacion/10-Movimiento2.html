@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Movimiento2</title>
+        <style type="text/css">
+            .bloq1{position: absolute;width: 300px; top: 50px; left: 40px ; background-color: lightgreen}
+            .bloq2{position: absolute;width: 300px; top: 50px; left: 600px;background-color: lightcoral}
+        </style>
+
+        <script language="JavaScript">
+            function cambiar(){
+                if(b1.className=="bloq1"){
+                    b2.className="bloq1";
+                    b1.className="bloq2";
+                }else{
+                    b2.className="bloq2";
+                    b1.className="bloq1";
+                }
+            }
+
+        </script>
+    </head>
+    <body background="imagenes/fondoe.jpg">
+        
+        <div id="b1" class="bloq1">
+            <img src="imagenes/Mario.jpg" height="250">
+            <p aling="justify" style="margin: 10px" >El famoso fontanero italiano decide retirarse de Nintendo y nos presenta su calida despedida.</p>
+        </div>
+        
+        <div id="b2" class="bloq2">
+            <img src="imagenes/perro.jpg" height="250">
+            <p aling="justify" style="margin: 30px">¿Asi luce el perro de Arnold Schwarzenegger al enterarse que el tambien debe levantar pesas de mas de 300 Kg! </p>
+        </div>
+        <input type="button" value="intercambio" onclick="cambiar()">
+    </body>
+</html>

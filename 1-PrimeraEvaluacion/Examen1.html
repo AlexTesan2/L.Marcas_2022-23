@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>1-Tabla</title>
+        <style type='text/css'>
+            
+        </style>
+        <script language='JavaScript'>
+            var objeto;
+            function cambiar(){
+                objeto=event.srcElement;
+                if(objeto.className=="cam"){
+                    alert(objeto);
+                    cc.className=objeto;
+                }
+
+            }
+            
+        </script>
+    </head>
+
+    <body onclick="cambiar()">
+        <h1 align='center'>TABLA</h1>
+        <table border = "10"  align="center" bgcolor="marine" width="60%" cellpading="25" cellspading="20">
+            <tr height="100" valing="top" bgcolor="orange">
+                <td colspan="4" align="center"><img id="cc" class="cambio" src="imagenes/fondo1.jpg"  width="400"height="200"></td>
+            </tr>
+            <tr height="100" valing="top" bgcolor="orange">
+                <td colspan="1" align="center" ><img class="cam" src="imagenes/manzana.jpg"  width="150"height="75"></td>
+                <td colspan="1" align="center" ><img class="cam"src="imagenes/fondo2.jpg"  width="150"height="75"></td>
+                <td colspan="1" align="center" ><img class="cam" src="imagenes/fondoe.jpg"  width="150"height="75"></td>
+                <td colspan="1" align="center" ><img class="cam"src="imagenes/multifondo.jpg"  width="150"height="75"></td>
+            </tr>
+
+        </table>
+    </body>
+</html>

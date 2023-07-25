@@ -1,0 +1,55 @@
+<html>
+<head> <title> Formularios </title> </head>
+<body background="imagenes/fondoi.jpg">
+    <h1 align="center">FORMULARIO</h1>
+    <br>
+    <form method="post" action="programa.php">
+
+        <table align="center" border="3" cellspacing="5" bgcolor="lightcoral" width="50%">
+            <tr bgcolor="silver">
+                <td align="center"> Introduzca su nommbre:</td>
+                <td align="left"><input type="text" size="50" maxlength="20" id="nombre"
+                    name="nombre">
+                </td>
+            </tr>
+
+            <tr bgcolor="silver">
+                <td align="right">Provincia</td>
+                    <td><select name="Provincia">
+                        <option value="2">Huesca</option>
+                        <option value="3"> Teruel</option>
+                        <option value="1" selected> Zaragoza</option>
+                    </select></td>
+            </tr>
+
+            <tr bgcolor="silver">
+                <td align="right">Edad</td>
+                <td>Mayor de 60 <input type="radio" name="edad" value="1">
+                    Entre 30 y 60 <input type="radio" name="edad" value="2">
+                    Menor de 30 <input type="radio" name="edad" value="3">
+                </td>                  
+            </tr>
+
+            <tr bgcolor="silver">
+                <td align="right">Deportes</td>
+                <td>Balonmano<input type="checkbox" name="deportes" value="1">
+                    Baloncesto<input type="checkbox" name="deportes" value="2">
+                    Futbol<input type="checkbox" name="deportes" value="3">
+                    Tenis<input type="checkbox" name="deportes" value="4">
+                </td>
+            </tr>
+
+            <tr bgcolor="silver">
+                <td align="right">Comentario</td>
+                <td> <textarea name="comentario" cols="60" rows="5">Escriba aquí un comentario...</textarea></td>
+            </tr>
+
+            <tr>
+                <td bgcolor="red"><input type="reset" value="Borrar todo"</td>
+                <td bgcolor="silvercoral"><input type="submit" value="Enviar"</td>
+            </tr>             
+        </table>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html><!--ejerc 19-->
+<head>
+    <title>Lo mismo pero con boton</title>
+    <style type="text/css">
+    </style>
+    
+    <script language="JavaScript">
+        var n=0;
+        function cambiar(){
+            if(n==0)
+                imagen.src="imagenes/llamarada.jpg";
+            else
+                imagen.src="imagenes/multifondo.jpg";
+            n=(n+1)%2;
+
+    }
+       
+       
+    </script>
+</head>
+<body>
+    <h1 align ="center">Toca el botón<h1>
+    <img id="imagen" src="imagenes/multifondo.jpg"; width="150" height="150">
+    <input type="button" value="Cambia" onclick="cambiar()">
+</body>
+</html>

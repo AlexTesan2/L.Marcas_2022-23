@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Crear y borrar cuadrados</title>
+        <script type="application/javascript">
+            window.onload=function(){
+                var canvas = document.getElementById("canvas");
+                if(canvas.getContext){
+                    var ctx=canvas.getContext('2d'); 
+                    //color por defecto: negro
+                    ctx.fillRect(25,25,100,100);//dibujar relleno
+                    ctx.clearRect(45,45,60,60);//borrar
+                    ctx.strokeRect(50, 50,50,50);//dibujar lineas sin relleno
+                }
+            };
+        </script>
+    </head>
+
+    <body>
+        <canvas id="canvas" width="150" height="150"></canvas>
+    </body>
+</html>

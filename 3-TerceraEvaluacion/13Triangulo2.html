@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>E4 Triangulo dibujado</title>
+        <script type="application/javascript">
+            window.onload=function(){
+                var canvas = document.getElementById("canvas");
+                if(canvas.getContext){
+                    var ctx=canvas.getContext('2d');
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(125,125);
+                    ctx.lineTo(125,45);
+                    ctx.lineTo(45,125);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            };
+        </script>
+    </head>
+
+    <body>
+        <canvas id="canvas" width="150" height="150"></canvas>
+    </body>
+</html>

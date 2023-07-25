@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Otro ejemplo de programacion</title>
+        <style type='text/css'>
+            
+        </style>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>  
+        <script language="JavaScript">                          //Outline 
+            $(document).ready(function(){
+
+                $("#ampliar").click(function(){
+                    $("#capa0").animate({outlineWidth:"15px"});
+                });
+                
+                $("#ampliar2").click(function(){
+                    $("#capa0").animate({outlineWidth:"15px"},10000);
+                });
+
+                $("#reducir").click(function(){
+                    $("#capa0").animate({outlineWidth:"1px"},5000);
+                });
+            });
+            
+        </script>
+    </head>
+
+    <body>
+        <span style="outline: 1px solid black " id="capa0">Capa en la que cambiamos pa propiedad outline</span>
+        <br><br><br><br><br><br>
+        <input type="button" id="ampliar" value="Ampliar marco">
+        <input type="button" id="ampliar2" value="Ampliar marco lento">
+        <input type="button" id="reducir" value="reducir marco">
+    </body>
+</html>

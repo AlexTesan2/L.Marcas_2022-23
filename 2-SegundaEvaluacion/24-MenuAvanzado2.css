@@ -1,0 +1,101 @@
+ul{
+    list-style-type: none;   /*quitar los puntos de la lista*/
+    padding: 0;
+    margin: 0;
+}
+
+li{
+    display: inline-block;
+    padding: 5px;
+    border: 1px outset #375F85;
+    background-color: #375F85;
+    color: white;
+    width: 100;
+    position: relative;
+    margin: -2px;
+    cursor: pointer;
+}
+
+#menuHorizontal{
+    text-align: center;
+}
+
+.submenu{
+    position: absolute;
+    top: 30px;
+    left: 1px;
+    display: none;        /*Esto hace invisible los elementos de la lista*/
+    box-shadow: 0px 5px 5px #000;
+    border-radius: 0px 0px 10px 10px;
+    animation-duration: 0.8s;
+}
+
+.submenu li:last-child{
+    border-radius: 0px 0px 10px 10px;  /*Redondea el borde del ultimo elemento de la lista*/
+}
+
+.submenu>li{
+    display: block;
+    animation-duration: 1.5s;     /*Indica la duracion de la animacion a la que llamara cuando se le pose el raton*/
+}
+
+.submenu>li:hover{              /*Cuando el raton esta encima de un elemento de la lista */
+    background-color: #C9D7E6; /*Color de fondo blanco, sube la escala total,y llama a la animacion botonsubMenu*/
+    transform: scale(1.1);
+    text-shadow: 2px 2px 2px #375F85;
+    z-index: 2;
+    animation-name: botonsubmenu;
+}
+
+@keyframes botonsubmenu{ /*Animacion*/
+
+    0%{
+        text-shadow: 200px 2px 20px #375F85 ;
+    }
+
+    50%{
+        transform: scale(1.5);
+        border-radius: 5px;
+    }
+
+    100%{
+        transform: scale(1.1);
+        text-shadow: 2px 2px 1px #375F85;
+    }
+}
+
+#menuHorizontal>li:hover{    /*Cuando se pone al raton sobre el nombre de la tabla*/
+
+    background-color: #abc;
+    padding-top: 10px;
+    box-shadow: 0px 0px 4px #375F85;
+    border-radius: 10px 10px 0px 0px ;
+    border: 1px outset #C9D7E6;
+    
+}
+
+#menuHorizontal li:hover ul{   /*demuestra el valor de la tabla cuando el raton se posa sobre el titulo */
+    display: block;
+    animation-name: submenu;
+}
+
+@keyframes sumenu{
+    0%{
+        opacity: 0;
+        left: 150;
+    }
+
+    50%{
+        transform: skew(10deg);
+        box-shadow: -10px 4px 8px 5px #000;
+
+    }
+
+    100%{
+        opacity: 1;
+        left: 1px;
+    }
+}
+#menuHorizontal>li{
+    transition: all 0.6s ease;
+}

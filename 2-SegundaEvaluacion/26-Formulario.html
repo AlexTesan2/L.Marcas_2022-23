@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Formulario validaciones</title>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script>
+            var siNo= false;
+            var validosNombre= "^[a-z A-z]{4,30}$";//{numero de caracteres aceptados}
+            var validosEmail=  "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";   
+
+
+            $(function(){
+                checkForm("#contacto");
+            });
+
+            function checkForm(idForm){
+                $(idForm+" *").on("change keyup", function(){     //$("#contacto *") cuando pulsas una letra y la sueltas
+
+                    if(checkInput("#nombre", validosNombre) && 
+                        checkInput("#apellidos", validosNombre) && 
+                        checkInput("#email", validosEmail) && 
+                        checkSelect("#edad") &&
+                        checkTextarea("#comentario") &&
+                        checkRadioBox("[name=boletin]"))
+
+                        $(idForm +" button.submit").removeAttr("disabled");
+                    else
+                        $(idForm +" button.submit").attr("disabled","disabled");
+
+                });              
+            }
+
+            function checkInput(idInput, validacion){
+                return $(idInput).val().match(validacion) ? true:false;  // match para comparar un String con otro 
+            }
+
+            function checkSelect(idSelect){
+                return $(idSelect).val()  ? true: false;     /*return $(idSelect).val() ? true: false;*/
+            }
+
+            function checkTextarea(idText){
+                return $(idText).val().length > 12 ? true : false;
+            }
+
+            function checkRadioBox(nombreRadioBox){
+                return $(nombreRadioBox).is(":checked") ? true : false;
+
+
+        </script>
+
+        <style type='text/css'>
+            form {margin:1em}
+            label {display:block ; margin: .5em 0}
+        </style>
+    </head>
+
+    <body>
+        <form name = "contacto" id="contacto" method="post" action="www.adadf">
+            <label for="nombre">Nombre:</label>
+            <input name="nombre" id="nombre" size="30">
+            
+            <label for="apellidos">Apellidos:</label>
+            <input name="apellidos" id="apellidos" size="30">
+
+            <label for="email">E-mail:</label>
+            <input name="email" id="email" size="30">
+
+            <label for="edad">Edad:</label>
+            <select name="edad" id="edad">
+                <option></option>
+                <option value="18-25">18 a 25 años</option>
+                <option value="26-45">26 a 45 años</option>
+                <option value="46-65">46 a 64 años</option>
+                <option value="+65">mas de 65 años</option>
+
+            </select>
+
+            <label for="comentario">Comentario:</label>
+            <textarea name="comentario" id="comentario" cols="40" rows="4"></textarea>
+            <label for="legal"><input type="checkbox" name="legal" >Estoy deacuerdo</label>
+            <label>¿Quiere recibir nuestro boletín?
+                <input type="radio" name="boletin" value="Si"/>Si
+                <input type="radio" name="boletin" value="No"/>No
+            </label>
+            <br><br><br>
+            <button class="submit" disabled>Evitar</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<html>                  <!--degeradado de dos colores -->
+    <head>
+        <title>Ejercicio 8 Gragientes</title>
+        <script type="application/javascript">
+            window.onload = function(){
+                var canvas = document.getElementById("canvas");
+                if (canvas.getContext){
+                    var ctx = canvas.getContext("2d");
+
+                    var gradiente = ctx.createLinearGradient(0,0,0, canvas.height);//posx,posy,pto inicio gradiente, pto final gradiente
+                    gradiente.addColorStop(0, "#000");
+                    gradiente.addColorStop(1, "#00f");
+                    
+                    ctx.fillStyle = gradiente;
+                    ctx.fillRect(0,0,canvas.width, canvas.height);
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="canvas" width="350" height="350"></canvas>
+    </body>
+</html>

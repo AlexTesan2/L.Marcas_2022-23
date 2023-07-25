@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Data base SQLite</title>
+        <script language='JavaScript'>
+            function cargar(){
+                var db=openDatabase('MiBaseDatos','1.0','Comentario sobre BD', 2 * 1024 * 1024);//nombre, version , comentario, dimensiones
+                db.transaction(function(tx){
+                    tx.executeSql('DROP TABLE IF EXISTS DATOS');
+                    tx.executeSql("CREATE TABLE IF NOT EXIST DATOS (codigo unique, nombre)");//la base de datos se guarda en el dsco duro y tmb en targeta ram
+                    tx.executeSql("INSERT INTO DATOS (codigo , nombre) VALUES (1,'Pepe')");
+                    tx.executeSql("INSERT INTO DATOS (codigo , nombre) VALUES (2,'Juan')");
+                });
+            }
+        </script>
+    </head>
+    <body onload="cargar()">
+    </body>
+</html>

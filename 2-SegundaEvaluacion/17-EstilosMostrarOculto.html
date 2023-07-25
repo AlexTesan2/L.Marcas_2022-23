@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Mostrar lo oculo</title>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script language='JavaScript'>
+        </script>
+
+        <style>
+
+            .primero , .segundo{
+                display: none;
+                padding: 5px;
+                border: 1px solid #ccc;
+                background-color: #f1f1f1;
+                position: relative;
+                width: 200px;
+            }
+
+            #primero:hover .primero{display: block; text-align: right; padding: 30px;}
+            #segundo:hover .segundo{display: block; background-color:lime;}
+
+                /* .primero se refiere a la CLASE    #primero se refiere al ID  */
+                /* hover es solo cuando el raton está encima */
+                /*display: none ; invisible   display: block ; aparecer   */
+                /* para poder modificar las propiedades de otro objeto, este tiene que estar declarado dentro del otro */
+        </style>
+
+    </head>
+    <body>
+        <ul>
+
+            <li id="primero"> Mostrar el primer DIV
+                <div class="primero"> Contenido del primer DIV</div>
+            </li>
+
+            <li id="segundo">Mostrar el segundo DIV
+                <div class="segundo">Contenido del segundo DIV</div>
+            </li>
+            <!--ul unorder list //   li list item-->
+        </ul>
+    </body>
+</html>

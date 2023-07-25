@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Metodos slideUp y slideDown</title>                  <!--Deslizamientos-->
+
+        <style type='text/css'>
+        </style>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script language='JavaScript'>
+
+            $(document).ready(function(){
+
+                $("#Ocultar").click(function(event){
+                    $("#rectangulo").slideUp(4000);
+                });
+
+                $("#Ocultar2").click(function(event){
+                    $("#rectangulo").animate({opacity:'0'}, 1000);
+                });
+
+                $("#Ocultar3").click(function(event){
+                    $("#rectangulo").hide(4000);
+                });
+
+                $("#OcultarMostrar").click(function(event){
+                    $("#rectangulo").slideToggle(3000);
+                });
+
+                $("#OcultarMostrar2").click(function(event){
+                    $("#rectangulo").slideUp(3000, function(){
+                        $("#rectangulo").slideDown(3000);
+                    });
+                });
+
+                $("#Mover").click(function(){
+                    $("#rectangulo").animate({marginLeft: "500px"}, 5000);
+                });
+
+                $("#Pintar").click(function(){
+                    $("#rectangulo").css("background-color" , "#000");
+                });
+
+
+            });
+
+
+        </script>
+    </head>
+
+    <body>
+        <input type="button" id="Ocultar"    value="Ocultar">
+        <input type="button" id="Mover"      value="Mover">
+        <input type="button" id="Pintar"      value="Pintar">
+        <input type="button" id="Ocultar2"     value="Ocultar2">
+        <input type="button" id="Ocultar3"     value="Ocultar3">
+        <input type="button" id="OcultarMostrar" value="Ocultar o Mostrar">
+        <input type="button" id="OcultarMostrar2" value="Ocultar y luego Mostrar">
+
+        <div id="rectangulo" style="padding: 500px 30px 30px 300px; background-color: gold; position: absolute; margin-left: 10px;"></div>
+
+    </body>
+</html>

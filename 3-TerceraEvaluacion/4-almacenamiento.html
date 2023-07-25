@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>SessionStorage</title><!--Storage=almacenamiento //  Session dura mientras navegas por la web (la sesion ha expirado) son como unas variables globales quee se quedan en tu memoria mientras funciona tu sesion, puedes acceder a esstas variables desde cualquier lugar web ej carrito compra-->
+        <!--estructura SessionStorage:  clave, valor   ej: clave: k3v (jamon), valor: 7 (numero de unidades)-->
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script type="application/javascript">
+
+            window.onload=mostrar;     //Cuando se carga la pagina, se ejecuta la funcion mostrar 
+
+            function mostrar(){
+                contenido.innerHTML = sessionStorage.length;  //muestra 0
+                sessionStorage.setItem("Antonio", 18);    //funcion setItem añadir/modificar un elemento la clabe no puede estar repetida añade si la clave no existe, y modifica si ya existe
+                contenido.innerHTML = sessionStorage.length; //muestra 1
+
+                contenido.innerHTML += "<br>" + sessionStorage.key(0);//mostrar el elemento q esta en la posicion 0
+                contenido.innerHTML += "<br>" + sessionStorage.getItem("Antonio");
+                //devuelve el valor asociado a la clave Antonio (18)
+
+                sessionStorage["Pedro"]=20;
+                contenido.innerHTML = sessionStorage.length;//muestra 2
+
+                contenido.innerHTML += "<br>" + sessionStorage.key(1);//mostrara Pedro
+                contenido.innerHTML += "<br>" + sessionStorage.getItem("Pedro");//mostrara 20
+
+                sessionStorage.removeItem("Antonio");
+                contenido.innerHTML = sessionStorage.length;//dara 1
+
+                contenido.innerHTML += "<br>" + sessionStorage.key(1);//dara null
+                contenido.innerHTML += "<br>" + sessionStorage.key(0);//dara pedro
+
+                sessionStorage.clear();//lo borra todo
+                contenido.innerHTML = sessionStorage.length;//dara 0
+            }
+        </script>
+    </head>
+    <body>
+        <div id="contenido"></div>
+    </body>
+</html>

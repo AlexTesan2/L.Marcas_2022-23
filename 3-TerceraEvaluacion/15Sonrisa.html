@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>E6 Sonria</title>
+        <script type="application/javascript">
+            window.onload=function(){
+                var canvas = document.getElementById("canvas");
+                if(canvas.getContext){
+                    var ctx=canvas.getContext('2d'); 
+
+                    ctx.beginPath();//cara
+                    var x=75;
+                    var y=75;
+                    var radio=50;
+                    var angInicio=0;
+                    var angFin= 2*(Math.PI);
+                    var anticlockwise=true;
+                    ctx.arc(x,y,radio,angInicio,angFin,anticlockwise);
+                    ctx.closePath();
+                    ctx.fill();
+
+                    ctx.fillStyle='#FFF';//al no poderse borrar los arcos, los pintamos de blanco sobre fondo negro
+                    ctx.beginPath();//sonrisa
+                    ctx.arc(75,75,30,0,Math.PI, false)//pi=180, solo deara media vuelta
+                    ctx.closePath();
+                    ctx.fill();
+
+                    ctx.beginPath();//ojos
+                    ctx.arc(60,65,5,0,Math.PI*2, false)//podsx,posy,radio,angulo inicial,angulo final,direccion contraria agujas reloj
+                    ctx.closePath();
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.arc(90,65,5,0,Math.PI*2, false)
+                    ctx.closePath();
+                    ctx.fill();
+                }
+            };
+        </script>
+    </head>
+
+    <body>
+        <canvas id="canvas" width="250" height="250"></canvas>
+    </body>
+</html>

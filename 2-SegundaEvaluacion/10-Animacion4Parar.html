@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Animacion4</title>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script language='JavaScript'>
+
+            $(document).ready(function(){
+
+                $("#parte1").click(function(event){
+                    $("#panel").slideDown(3000);
+                });
+
+                $("button").click(function(event){
+                    $("#panel").stop();
+                });
+            });
+
+
+        </script>
+
+        <style>
+            #parte1 , #panel{
+
+                padding: 5px;
+                font-size: 18px;
+                text-align: center;
+                background-color: #555;
+                color: white;
+                border: solid 1px #666;
+                border-radius: 3px; 
+            }
+
+            #panel{
+                padding: 50px;
+                display: none;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <button>Parar</button>
+        <div id="parte1">Click para aumentar el panel</div>
+        <div id="panel">Aqui estuidiando HTML, JavaScript y CSS</div>
+    </body>
+</html>

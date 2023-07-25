@@ -1,0 +1,38 @@
+<html>
+<head><title>Combinar base de Datos SQLite con canvas</title>
+
+<script  type="application/javascript">
+function mostrar(){
+    var db = openDatabase("Valores2","1.0","Comentario sobre BD",2 * 1024 *1024); //(Nombre, Versión, Comentario, Tamaño de la base)
+    var canvas = document.getElementById("canvas");
+    db.transaction(function(tx){
+        tx.executeSql("CREATE TABLE IF NOT EXISTS VALORES2(posx, posy)");
+        tx.executeSql("SELECT * FROM VALORES2", [], function(tx, resultados){
+        tx.executeSql("INSERT INTO VALORES2 (posx, posy) VALUES (45,125)");
+        tx.executeSql("INSERT INTO VALORES2 (posx, posy) VALUES (125,125)");
+        tx.executeSql("INSERT INTO VALORES2 (posx, posy) VALUES (125,45)");
+            var len = resultados.rows.length;
+            if(resultados.rows.length > 0){
+                if(canvas.getContext){
+                    var ctx = canvas.getContext("2d");
+                    ctx.beginPath();
+                    ctx.moveTo(resultados.rows.item(0).posx,resultados.rows.item(0).posy);
+                    for(i=1; i<len; i++){
+                        ctx.lineTo(resultados.rows.item(i).posx,resultados.rows.item(i).posy);
+                    }
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            }
+        }, null);
+    });
+}
+
+</script>
+</head>
+<body onload="mostrar()">
+
+<canvas id="canvas" width="150" height="150"></canvas>
+
+</body>
+</html>

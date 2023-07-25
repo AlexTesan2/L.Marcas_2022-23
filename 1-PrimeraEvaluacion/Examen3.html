@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title></title>
+        <style type='text/css'>
+            
+        </style>
+        <script language='JavaScript'>
+            var vect[]={"T","R","W","A","G","M","Y","F","P","D","X","P","D","X","B","N","J","Z","S","Q","V","H","L","J","C","K","E"};
+            var numero;
+            var letra;
+            function calcular(){
+                numero=parseInt(num.value);
+                letra=numero%23;
+                resultado.value=vect[letra];
+            }
+            
+        </script>
+    </head>
+
+    <body>
+        <br><br>
+        <table align='center'border=10 bgcolor="lemonchifon">
+            <td><input type="text" size="20" maxlength="20" id="num"></td>
+            <td><input type="button" value="=" onclick="calcular()"></td>
+            <td><input id="resultado" width="100"></td>
+        </table>
+
+        
+        
+    </body>
+</html>

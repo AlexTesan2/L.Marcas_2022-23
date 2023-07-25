@@ -1,0 +1,126 @@
+<!--Insertar mediante código varios registros en la tabla de “Provincias” que contiene los campos:
+- nombre (string)
+- numHabitantes (int)
+- extension (int)
+- numPoblaciones (int)
+2.5 puntos.
+
+Mostrar un listado con los datos de laspo el orden de la provincias ordenados en orden alfabético. 
+2.5 puntos
+
+Debajo pondréis 3 botones, al pulsar el primero insertaréis en la sessionStorage el nombre y el número de habitantes, ordenados descendentemente por nº de habitantes y mostraréis el contenido del sessionStorage por pantalla.//saca el nobre y num habitantes ordenadas por n hab en el sesion storage
+El segundo botón hará lo mismo pero ordenado por extensión.
+El tercer botón igual, pero ordenado por nº de poblaciones.
+5 puntos.-->
+<html>
+    <head>
+        <title>Examen AlexTesan</title>
+        <style type="text/css">
+            .sesiones{
+                position: absolute;
+                top: 40px;
+                left: 250px;
+                background-color: aqua;
+            }
+        </style>
+        <script type="application/javascript">
+        var db = openDatabase('Examen', '1.0', 'Comentario sobre DB', 2 * 1024 * 1024); //las variables ahora son locales a las funciones por lo que la declaramos aquí y funciona para todas;
+
+        function cargarTabla(){
+            db.transaction(function(tx){
+                tx.executeSql('DROP TABLE IF EXISTS Provincias');
+                tx.executeSql('CREATE TABLE IF NOT EXISTS Provincias (nombre unique, numHabitantes, extension, numPoblaciones)');
+                tx.executeSql('INSERT INTO Provincias (nombre, numHabitantes, extension, numPoblaciones) VALUES ("Zaragoza", 700000, 45, 90)');
+                tx.executeSql('INSERT INTO Provincias (nombre, numHabitantes, extension, numPoblaciones) VALUES ("Huesca", 12000, 16, 37)');
+                tx.executeSql('INSERT INTO Provincias (nombre, numHabitantes, extension, numPoblaciones) VALUES ("Teruel", 900, 6, 49)');
+                tx.executeSql('INSERT INTO Provincias (nombre, numHabitantes, extension, numPoblaciones) VALUES ("Asturias", 3400, 89, 45)');
+                tx.executeSql('INSERT INTO Provincias (nombre, numHabitantes, extension, numPoblaciones) VALUES ("Murcia", 9500, 56, 33)');
+            });
+            visualizar()
+        }
+        
+
+        function visualizar() {
+            var lista = document.getElementById("listadoProv");
+            db.transaction(function(tx) {
+                tx.executeSql('SELECT * FROM Provincias ORDER BY nombre', [], function(tx, resultados) {
+                    var resultado = "";
+                    for (var i = 0; i < resultados.rows.length; i++) {
+                        var fila = resultados.rows.item(i);
+                        sessionStorage.setItem(fila.nombre, fila.numHabitantes);
+                        resultado += "Nombre: " + fila.nombre + "<br>";
+                        resultado += "Num Habitantes: " + fila.numHabitantes + "<br>";
+                        resultado += "Extensión: " + fila.extension + "<br>";
+                        resultado += "Num Poblaciones: " + fila.numPoblaciones + "<br>------------------------<br>";
+                    }
+                    lista.innerHTML = resultado;
+                });
+            });
+        }
+
+        function Habitantes(){
+            var divi = document.getElementById("sesionesEstorages");
+            db.transaction(function(tx) {
+                tx.executeSql('SELECT nombre, numHabitantes FROM Provincias ORDER BY numHabitantes DESC;', [], function(tx, resultados) {
+                    var resul = "";
+                    for (var i = 0; i < resultados.rows.length; i++) {
+                        var fila = resultados.rows.item(i);
+                        sessionStorage.setItem(fila.nombre,fila.numHabitantes);
+                    }
+
+                    for(var j = 0; j < sessionStorage.length; j++)
+                        resul += sessionStorage.key(j) + ": " + sessionStorage.getItem(sessionStorage.key(j)) + "<br>";
+                    divi.innerHTML = resul;
+                });
+            });
+        }
+
+        function Extension(){
+            var divi = document.getElementById("sesionesEstorages");
+            db.transaction(function(tx) {
+                tx.executeSql('SELECT nombre, extension FROM Provincias ORDER BY extension DESC', [], function(tx, resultados) {
+                    var resul = "";
+                    for (var i = 0; i < resultados.rows.length; i++) {
+                        var fila = resultados.rows.item(i);
+                        sessionStorage.setItem(fila.nombre,fila.extension);
+                    }
+
+                    for(var j = 0; j < sessionStorage.length; j++)
+                        resul = resul + sessionStorage.key(j) + ": " + sessionStorage.getItem(sessionStorage.key(j)) + "<br>";
+                    divi.innerHTML = resul;
+                });
+            });
+        }
+
+        function Poblaciones(){
+            var divi = document.getElementById("sesionesEstorages");
+            db.transaction(function(tx) {
+                tx.executeSql('SELECT nombre, numPoblaciones FROM Provincias ORDER BY numPoblaciones DESC', [], function(tx, resultados) {
+                    var resul = "";
+                    for (var i = 0; i < resultados.rows.length; i++) {
+                        var fila = resultados.rows.item(i);
+                        sessionStorage.setItem(fila.nombre,fila.numPoblaciones);
+                    }
+
+                    for(var j = 0; j < sessionStorage.length; j++)
+                        resul = resul + sessionStorage.key(j) + ": " + sessionStorage.getItem(sessionStorage.key(j)) + "<br>";
+                    divi.innerHTML = resul;
+                });
+            });
+        }
+
+
+        </script>
+    </head>
+    <body onload="cargarTabla()">
+        <div id="listadoProv"></div>
+        <div id="botones">
+            <input type="button" value="X_Habitantes" onclick="Habitantes()">
+            <br><br>
+            <input type="button" value="X_Extension" onclick="Extension()">
+            <br><br>
+            <input type="button" value="X_NumPoblaciones" onclick="Poblaciones()">
+        </div>
+        <div id="sesionesEstorages" class="sesiones" align="center"></div>
+    </body>
+</html>

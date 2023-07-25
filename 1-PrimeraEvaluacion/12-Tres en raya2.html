@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Tres en raya fase2</title>
+        <style type="text/css">
+            .val{width: 30; height: 35; background-color: yellow; text-align: center}
+            .noval{width: 30; height: 35; background-color: lime; text-align: center}
+        </style>
+        <script language="JavaScript">
+            var a=0;
+            function cambiar(){
+                objeto=event.srcElement;
+                if(objeto.className=="val"){
+                if(a==0){
+                    objeto.innerHTML = "<img src= imagenes/cruz.jpg width=30 height = 35>";
+                    objeto.className="noval";
+                    a=1;
+                }
+                if(a==1){
+                    objeto.innerHTML = "<img src= imagenes/circulo.jpg width=30 height = 35>";
+                    a=0;
+                }
+            }
+        }
+
+        </script>
+    </head>
+    <body onclick="cambiar()">
+        <h1 align="center">Tres en raya </h1>
+        <table align="center" border="5" cellspacing="5">
+            <tr>
+                <td class="val"></td><td class="val"></td><td class="val"></td>
+            </tr>
+            <tr>
+                <td class="val"></td><td class="val"></td><td class="val"></td>
+            </tr>
+            <tr>
+                <td class="val"></td><td class="val"></td><td class="val"></td>
+            </tr>
+        </table>
+    </body>
+</html>

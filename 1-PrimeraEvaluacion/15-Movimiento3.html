@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title></title>
+        <style type='text/css'>
+            
+        </style>
+        <script language='JavaScript'>
+            var objeto=null;
+            function cargar(){
+                if(event.srcElement.className=="movil")
+                    objeto=event.srcElement;
+                
+            }
+
+            function descargar(){    
+                objeto=null;
+            }
+
+            function mover(){
+                if(objeto != null){
+                    objeto.style.left=event.x-75;
+                    objeto.style.top=event.y-75;
+                }
+            }
+            
+        </script>
+    </head>
+
+    <body  onmousedown="cargar()" onmouseup="descargar()" onmousemove="mover(); return false">
+        <img class="movil" id= "i1" src="imagenes/perro.jpg" width="150" height="150" style="left: 100; top:50">
+        <img class="movil" id= "i2" src="imagenes/Mario.jpg" width="150" height="150" style="left: 300; top:50">
+
+    </body>
+</html>

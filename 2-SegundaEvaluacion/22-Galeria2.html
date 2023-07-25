@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Galeria de imagenes2</title>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script>
+            $(document).ready(function(event){
+
+                var veces=0;
+                $("#galeria div:gt(0)").hide();     /*aplicar (ocultar) a todos(gt) excepto al elemento 0, sobre parrafos div q esten en galeria*/
+                setInterval(function(){
+                    $("#galeria div:first-child").fadeOut()
+                    .next("div").fadeIn(1000)
+                    .end().appendTo("#galeria");
+
+                }, 4000);
+                
+
+            });
+
+        </script>
+
+        <style type='text/css'>
+            #galeria{position: relative; width: 600; height: 400;overflow: hidden; border: 10px solid#333; margin: 0 auto; padding: 0; border-radius: 40px;  }
+            #galeria p{position: absolute; left: 100; bottom: 30; color: #eee; background-color: #990000; text-align: center; width: 400; height: 24;
+                        padding: 5px; display: block; font-size: 22px ;opacity: 0.7 ;}
+        </style>
+    </head>
+
+    <body>
+        <div id="galeria">
+            <div><img width="600" height="400" src="im/totuga.jpg"><p>Imagen 1</p></div>
+            <div><img width="600" height="400" src="im/tucan.jpg"><p>Imagen 2</p></div>
+            <div><img width="600" height="400" src="im/feo.jpg"><p>Imagen 3</p></div>
+        </div>
+    </body>
+</html>

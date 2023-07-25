@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Galeria de imagenes</title>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script>
+            $(document).ready(function(event){
+
+                $("#next").click(function(event){
+                    $("#galeria li:first").appendTo("#galeria");/*Coje el primer elemento y lo pone al final*/
+                });
+
+                $("#before").click(function(event){
+                    $("#galeria li:last").prependTo("#galeria");
+                });
+            });
+        </script>
+
+        <style type='text/css'>
+            li{float: left; list-style: none;}
+            ul{width: 600; height: 400; overflow: hidden;}
+            ul,li{padding: 0px; margin: 0;}
+
+        </style>
+    </head>
+
+    <body>
+        <h1 align="left">AH-64 Apache</h1>
+        <ul id="galeria">
+            <li><img width="600" height="400" src="im/apache.jpg"></li>
+            <li><img width="600" height="400" src="im/apache2.jpg"></li>
+            <li><img width="600" height="400" src="im/apache3.jpg"></li>
+        </ul>
+
+        <button id="next" >Siguiente</button>
+        <button id="before">Anterior</button>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+                actual=0;
+                
+                setInterval(function(){
+
+                    actual=(actual+1)%3;
+
+                    $("#semaforo div").animate({opacity:'0'}, 1000);   //Todos los parrafos div del semaforo se oscurecen
+                    $("#divAnimado" +actual).animate({opacity:'1'}, 1000)
+
+                },5000);
+
+            });
+
+        </script>
+
+        <style type='text/css'>
+
+
+            #semaforo{
+                width: 152px;
+                height: 453px;
+                margin-left: 50px;
+                margin-top: 0px;
+                background-color: black;
+                border-radius: 20px;
+            }
+
+            #divAnimado0, #divAnimado1, #divAnimado2{
+                width: 150px;
+                height: 150px;
+                margin-left: 1px;
+                margin-top: 1px;
+                background-color: red;
+                border-radius: 20px;
+            }
+
+            #divAnimado1{
+                background-color: yellow;
+                opacity: 0;
+            }
+
+            #divAnimado2{
+                background-color: green;
+                opacity: 0;
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+        <div id="semaforo">
+            <div id="divAnimado0"></div>
+            <div id="divAnimado1"></div>
+            <div id="divAnimado2"></div>
+        </div>
+
+    </body>
+</html>

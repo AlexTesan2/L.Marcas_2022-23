@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title></title>
+        <style type='text/css'>
+            
+        </style>
+        <script language='JavaScript'>
+            var actual =1;
+            function cambio(){
+                if(actual<5){
+                    document.getElementById("imagen"+ actual).style.visibility="hidden";
+                    actual++;
+                    document.getElementById("imagen"+ actual).style.visibility="visible";
+                }else
+                    actual=1;
+                    document.getElementById("imagen"+ actual).style.visibility="visible";
+            }
+            
+        </script>
+    </head>
+
+    <body onload="setInterval('cambio()',500)">
+        <h1 align='center'></h1>
+        <img id="imagen1" src="imagenes/cerilla.jpg" width="150" height="150">
+        <img id="imagen2" style="visibility:hidden" src="imagenes/arquero2.jpg" width="150" height="150">
+        <img id="imagen3" style="visibility:hidden" src="imagenes/multifondo.jpg" width="150" height="150">
+        <img id="imagen4" style="visibility:hidden" src="imagenes/manzana.jpg" width="150" height="150">
+    </body>
+</html>

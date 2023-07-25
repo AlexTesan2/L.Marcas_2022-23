@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>E3 Triangulo</title>
+        <script type="application/javascript">
+            window.onload=function(){
+                var canvas = document.getElementById("canvas");
+                if(canvas.getContext){
+                    var ctx=canvas.getContext('2d'); 
+                    
+                    ctx.beginPath();//comienza el camino
+                    ctx.moveTo(25,25);//punto de inicio
+                    ctx.lineTo(105,25);
+                    ctx.lineTo(25,105);
+                    ctx.closePath();//cierro camino, junta el ultimo punto con el primero
+                    //ctx.stroke();
+                    ctx.fill();//se dibuja con fill, se pinta con strocke
+                }
+            };
+        </script>
+    </head>
+
+    <body>
+        <canvas id="canvas" width="150" height="150"></canvas>
+    </body>
+</html>

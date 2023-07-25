@@ -1,0 +1,32 @@
+<html>              <!--Crear foco de luz en el centro del color-->
+    <head>
+        <title>Ejercicio 9 Gradientes2</title>
+        <script type="application/javascript">
+            window.onload = function(){
+                var canvas = document.getElementById("canvas");
+                if(canvas.getContext){
+                    var ctx = canvas.getContext("2d");
+                    
+                    var gradiente = ctx.createRadialGradient(
+                        canvas.width/2, //x gradiente interno
+                        canvas.height/2, //y gradiente interno
+                        0,               //radio gradiente interno
+                        canvas.width/2,  //x gradiente externo
+                        canvas.height/2, //y gradiente externo
+                        canvas.width/2,  //radio gradiente externo
+                        350);            //punto final del gradiente radial
+                    
+                    gradiente.addColorStop(0, "#fff");
+                    gradiente.addColorStop(1, "#0f0");
+                    
+                    ctx.fillStyle = gradiente;
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                }
+            };
+        </script>
+    </head>
+
+    <body>
+        <canvas id="canvas" width="150" height="150"></canvas>
+    </body>
+</html>

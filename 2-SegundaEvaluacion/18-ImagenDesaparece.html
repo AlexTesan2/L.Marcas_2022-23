@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Metodos SLIDE</title>
+        <style type='text/css'>
+            
+        </style>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script language='JavaScript'>
+
+            $(document).ready(function(){
+
+                $("#Desaparecer").click(function(event){
+                    $(".imagen").hide(4000);
+                    $("#v").hide(4000);
+                });
+
+                $("#Aparecer").click(function(event){
+                    $(".imagen").show(5000);
+                    $("#v").show(1000);
+                });
+                    /* # Id  / . Clase*/
+            });
+
+        </script>
+
+        <style>
+            .imagen{
+                width: 800px;
+                height: 400px;
+                padding: 10px;
+                border-radius: 5%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <img src="im/tanque.jpg" class="imagen">
+        <br><br>
+        <div id="v">Aparecer y desaparecer</div>
+        <br><br>
+        <input type="button" id="Desaparecer" value="Desaparecer">
+        <br><br>
+        <input type="button" id="Aparecer" value="Aparecer">
+    </body>
+</html>

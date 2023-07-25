@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>relog digital</title>
+        <style type='text/css'>
+            
+        </style>
+        <script language='JavaScript'>
+            function reloj(){
+                var fecha=new Date();
+                var horaStr="";
+                horaStr=((fecha.getHours()<10)? "0":"") + fecha.getHours()+":";
+                horaStr+=((fecha.getMinutes()<10)? "0":"") + fecha.getMinutes()+":";
+                horaStr+=((fecha.getSeconds()<10)? "0":"") + fecha.getSeconds();
+
+                cadena.value=horaStr;
+            }
+            
+        </script>
+    </head>
+
+    <body onload="setInterval('reloj()',1000)">
+        <center>
+            <h1 align='center'>Reloj digital</h1>
+            <input id="cadena" size="8">
+        </center>
+        <p>
+            
+        </p>
+    </body>
+</html>
+<!--si inmediato-->

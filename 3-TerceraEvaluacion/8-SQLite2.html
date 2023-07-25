@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Leer datos SQLite</title>
+        <script language='JavaScript'>
+            function cargar(){
+                var db = openDatabase('MiBaseDatos', '1.0', 'Comentario sobre DB', 2 * 1024 * 1024);
+                db.transaction(function (tx) {//espera recibir una funcion que recibe como parametro un objeto tx
+                    tx.executeSql('SELECT * FROM DATOS', [], function (tx, resultados) {//[] es un array vacio, es el array de parametros que se le pasan a la sentencia SQL en caso de que la sentencia SQL tenga parametros (en este caso no los tiene) y la funcion que se ejecuta cuando se obtienen los resultados de la consulta. La funcion que se ejecuta cuando se obtienen los resultados de la consulta recibe como parametros el objeto tx y el objeto resultados que contiene los resultados de la consulta.
+                        var len = resultados.rows.length; //numero de filas    --- a esta linea ya no llega ---
+                        msg = "<p>Encontrados " + len + " registros:</p>"; //mensaje
+                        //estado.innerHTML = len;//añadimos el mensaje al div estado
+                        
+                        for (i = 0; i < len; i++){//recorremos las filas
+                            msg+= '<p><b>' + resultados.rows.item(i).codigo + '</b> ' + resultados.rows.item(i).nombre + '</p>';//mostramos el codigo y el nombre
+                        }
+                    estado.innerHTML += msg;//añadimos el mensaje al div estado
+                    });
+                });
+            }
+        </script>
+    </head>
+    <body onload="cargar()">
+        <div id="estado"></div>  
+    </body>
+    </body>
+</html>

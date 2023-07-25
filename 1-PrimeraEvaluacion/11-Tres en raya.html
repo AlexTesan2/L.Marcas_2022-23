@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Tres en raya fase1</title>
+        <style type="text/css">
+            .val{width: 30; height: 35; background-color: yellow;}
+            .noval{width: 30; height: 35; background-color: lime;}
+        </style>
+        <script language="JavaScript">
+            function cambiar(){
+                objeto= event.srcElement;
+                if(objeto.className=="val")
+                    objeto.className="noval";
+            }
+
+        </script>
+    </head>
+    <body onclick="cambiar()">
+        <h1 align="center">Tres en raya </h1>
+        <table align="center" border="5" cellspacing="5">
+            <tr>
+                <td class="val"></td><td class="val"></td><td class="val"></td>
+            </tr>
+            <tr>
+                <td class="val"></td><td class="val"></td><td class="val"></td>
+            </tr>
+            <tr>
+                <td class="val"></td><td class="val"></td><td class="val"></td>
+            </tr>
+        </table>
+    </body>
+</html>

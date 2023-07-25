@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title></title>
+        <style type='text/css'>
+            
+        </style>
+        <script language='JavaScript'>
+            var numero;
+            function calcular(){
+                numero=parseInt(num.value);
+                if(numero<9)
+                    if(numero>0){
+                        alert(7*numero);
+                        resultado.value=7*numero;
+                    }
+                        
+            }
+        
+            
+        </script>
+    </head>
+
+    <body>
+        <h1 align='center'>Tabla del 7</h1>
+        <table align='center'border=10 bgcolor="yellow">
+
+            <td>7 X </td>
+            <td><input type="text" size="20" maxlength="20" id="num"></td>
+            <td><input type="button" value="=" onclick="calcular()"></td>
+            <td><input id="resultado" width="100"></td>
+        </table>
+    </body>
+</html>

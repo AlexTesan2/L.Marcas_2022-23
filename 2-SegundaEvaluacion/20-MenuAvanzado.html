@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Menu con lista</title>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <link rel="stylesheet" href="20-MenuAvanzado.css" type="text/css">  <!-- crear un archivo css donde guardar los estilos-->
+        <script>
+            $(document).ready(function(event){
+                $(".contenedor div").hide();
+                $(".contenedor div:first").show();
+                $("ul.tabs li:first").addClass("activa");
+
+               $("ul.tabs li").click(function(){ /* $->Objeto / Elementos de lista(list elemets), de la clase tabs, en una lista desordenada*/
+                    $("ul.tabs li").removeClass("activa");
+                    $(this).addClass("activa");
+                    $(".contenedor div").hide();
+                    var parrafoAActivar = $(this).find("a").attr("href");
+                    $(parrafoAActivar).show();
+                    
+               });
+            });
+        </script>
+    </head>
+    <body>
+        <table align="center">
+            <tr>
+                <td>
+                    <ul class="tabs">
+                        <li><a href="#tab1">AH-64 Apache</a></li><!--href para redireccionar-->
+                        <li><a href="#tab2">Misiles Hellfire</a></li>
+                        <li><a href="#tab3">Misiles Stinger</a></li>
+                        <li><a href="#tab4">Cohetes Hidra</a></li>
+                    </ul>
+                    <div class="contenedor">
+                        <div id="tab1">
+                            Como modelo de helicóptero de combate, el AH-64 Apache es considerado uno de los mejores del mundo por varias razones.
+
+                            En primer lugar, el AH-64 cuenta con una gran capacidad de maniobra gracias a su diseño aerodinámico, lo que le permite realizar maniobras rápidas y precisas en combate. Además, su sistema de propulsión, compuesto por dos motores turboeje, le brinda una gran potencia y velocidad, lo que lo hace capaz de alcanzar velocidades superiores a los 300 km/h.
+
+                            En segundo lugar, el Apache está armado con una variedad de armamento avanzado, que incluye un cañón automático M230 de 30 mm, cohetes Hydra 70 y misiles Hellfire, lo que le permite atacar objetivos terrestres, aéreos y navales con gran precisión y letalidad.
+
+                            En tercer lugar, el AH-64 cuenta con una avanzada suite de sensores y sistemas electrónicos, que incluyen un radar de seguimiento de terreno, sistemas de navegación y orientación, sensores de detección de amenazas, entre otros, lo que le permite realizar misiones de combate en todo tipo de condiciones meteorológicas y de visibilidad.
+
+                            Por último, el Apache es operado por tripulaciones altamente capacitadas y entrenadas, que reciben una formación intensiva en tácticas y técnicas de combate, lo que les permite llevar al máximo las capacidades del helicóptero en el campo de batalla.
+
+                            En resumen, el AH-64 Apache es considerado uno de los mejores helicópteros de combate del mundo debido a su gran capacidad de maniobra, su armamento avanzado, su avanzada suite de sensores y sistemas electrónicos, y la capacitación y experiencia de sus tripulaciones.
+                        </div>
+                        <div id="tab2">
+                            El misil Hellfire es un misil aire-tierra guiado por láser utilizado por las fuerzas armadas de los Estados Unidos y de otros países. Fue desarrollado originalmente por la compañía estadounidense Lockheed Martin en la década de 1980, y ha sido ampliamente utilizado en una variedad de conflictos militares.
+
+                            El misil Hellfire está diseñado para atacar objetivos terrestres, marítimos o aéreos enemigos, y su sistema de guía láser permite una alta precisión en el impacto. La guía láser funciona mediante la emisión de un haz láser hacia el objetivo, y el misil sigue automáticamente el haz hasta el momento del impacto.
+
+                            El misil Hellfire puede ser lanzado desde diferentes tipos de plataformas, incluyendo helicópteros, aviones y vehículos terrestres, y se puede adaptar para diferentes misiones y objetivos. El Hellfire es muy efectivo contra objetivos blindados, vehículos enemigos, búnkeres, edificios fortificados y otros objetivos terrestres.
+
+                            Además, la versión más reciente del misil Hellfire, llamada Longbow Hellfire, tiene un sistema de radar de onda milimétrica que le permite identificar y atacar objetivos en movimiento a larga distancia. Esto lo hace especialmente efectivo en situaciones de combate en las que se requiere un alcance extendido y una alta precisión.
+
+                            En resumen, el misil Hellfire es un misil aire-tierra guiado por láser utilizado por las fuerzas armadas de los Estados Unidos y de otros países. Es altamente preciso y efectivo contra una variedad de objetivos terrestres, marítimos y aéreos, y se puede lanzar desde diferentes plataformas. La versión más reciente del misil, el Longbow Hellfire, tiene un sistema de radar de onda milimétrica que le permite identificar y atacar objetivos en movimiento a larga distancia.
+                        </div>
+                        <div id="tab3">
+                            Los misiles Stinger son un tipo de misil superficie-aire portátil utilizado para interceptar y destruir aeronaves enemigas. Fueron desarrollados originalmente por la compañía estadounidense General Dynamics en la década de 1970, y han sido ampliamente utilizados por las fuerzas armadas de todo el mundo.
+
+                            El misil Stinger es un arma muy efectiva contra aeronaves enemigas, y su principal ventaja es su portabilidad y facilidad de uso. Es transportado por una sola persona y se puede disparar desde el hombro, lo que lo hace ideal para misiones de defensa aérea en áreas remotas o difíciles de alcanzar.
+
+                            El misil Stinger cuenta con una cabeza buscadora infrarroja, lo que le permite detectar y seguir el calor producido por el motor de la aeronave enemiga. Una vez que el misil adquiere el objetivo, el sistema de guía lo dirige automáticamente hacia el objetivo y lo hace explotar en su proximidad, lo que provoca daños críticos o la destrucción total de la aeronave.
+
+                            Además, los misiles Stinger son conocidos por su capacidad de contramedida limitada, lo que significa que son más difíciles de engañar por las medidas de defensa electrónicas enemigas, como la emisión de señales falsas de calor.
+
+                            En resumen, los misiles Stinger son un tipo de misil superficie-aire portátil muy efectivo contra aeronaves enemigas. Son conocidos por su portabilidad, facilidad de uso y alta capacidad de interceptación, y han sido ampliamente utilizados por las fuerzas armadas de todo el mundo. Su capacidad de contramedida limitada los hace especialmente efectivos en misiones de defensa aérea.
+                        </div>
+                        <div id="tab4">
+                            Los cohetes Hydra son una familia de cohetes no guiados de alta precisión, utilizados principalmente en misiones militares para atacar objetivos terrestres y aéreos. Estos cohetes son producidos por la compañía estadounidense Lockheed Martin, y son ampliamente utilizados por las fuerzas armadas de muchos países.
+
+                            Los cohetes Hydra son conocidos por su alta precisión y efectividad en combate, y son utilizados para una amplia variedad de misiones militares, incluyendo apoyo aéreo cercano, interdicción de convoyes, ataque a objetivos terrestres y aéreos, y supresión de defensas aéreas enemigas.
+
+                            Los cohetes Hydra son disponibles en varias versiones, siendo las más comunes el modelo Hydra 70, que tiene un diámetro de 70 mm y es capaz de alcanzar objetivos a distancias de hasta 8 kilómetros. También existen modelos de mayor diámetro, como el Hydra 127 mm y el Hydra 227 mm, que son utilizados para misiones de mayor alcance y capacidad destructiva.
+
+                            Los cohetes Hydra son capaces de ser lanzados desde una amplia variedad de plataformas, incluyendo aviones de combate, helicópteros, vehículos terrestres y buques de guerra. Además, pueden ser equipados con diferentes tipos de cabezas explosivas, incluyendo fragmentación, penetración de blindaje y carga hueca, lo que les permite adaptarse a diferentes tipos de objetivos enemigos.
+
+                            En resumen, los cohetes Hydra son una familia de cohetes no guiados de alta precisión, ampliamente utilizados por las fuerzas armadas en misiones de ataque a objetivos terrestres y aéreos. Son conocidos por su alta precisión, efectividad en combate, y versatilidad, y son utilizados en una amplia variedad de plataformas y escenarios militares.
+                        </div>
+                    </div>
+                </td><!--celda/fila-->
+            </tr>
+        </table>
+
+    </body>
+</html>

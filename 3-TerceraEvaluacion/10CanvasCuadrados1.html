@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>E1 Canvas</title>
+        <script type="application/javascript">
+            
+            window.onload=function(){
+                var canvas = document.getElementById("canvas");
+                if(canvas.getContext){
+                    var ctx=canvas.getContext('2d'); //el contexto es una clase para la configuracion (quieres trabajar en 2 dimensiones)
+                    
+                    ctx.fillStyle = "rgb(200,0,0)";
+                    ctx.fillRect(10,10,55,50);//llenar rectangulo
+                    ctx.fillStyle = "rgba(0,0,200,0.5)";//el ultimo parametro es la transparencia
+                    ctx.fillRect(30,30,55,50);
+                }
+            };
+        </script>
+    </head>
+    
+    <body>
+        <canvas id="canvas" width="150" height="150"></canvas><!--sirven para dibujar-->
+    </body>
+</html>

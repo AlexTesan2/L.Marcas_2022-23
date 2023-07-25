@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Enlaces</title>                  <!--se subrraya el enlace cuando el raton está encima-->
+
+        <style type='text/css'>
+        </style>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script language='JavaScript'>
+
+            x=$(document);          
+            x.ready(inicializaEventos);
+
+            function inicializaEventos(){
+                var objetos = $("a");           //se refiere a los objetos de la marca a, objetos es un vector
+                objetos.mouseover(entrarMouse); //no se ejecuta 1º , se guarda en memoria y cuando se produce el evento se ejeuta 
+                objetos.mouseleave(salirMouse);
+            }
+
+            function entrarMouse(){
+                $(this).css("background-color" , "#FF0");//se refiere al objeto sobre el que se ha producido el evento
+            }
+
+            function salirMouse(){
+                $(this).css("background-color" , "#FFFFFF");
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <a href="https://www.marca.com/">Marca</a>
+        <a href="https://www.youtube.com/">Youtube</a>
+        <a href="https://chat.openai.com/chat">ChatGTP</a>
+    </body>
+</html>
+<!--programar los objetos de todas las a -->
+<!--el evento se produce sobre this-->

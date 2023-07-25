@@ -1,0 +1,71 @@
+
+<html>
+<head><title>Combinar base de Datos SQLite con canvas</title>
+
+<script  type="application/javascript">
+var db;
+function cargar(){
+	db = openDatabase("Valores","1.0","Comentario sobre BD",2 * 1024 *1024); //(Nombre, Versión, Comentario, Tamaño de la base)
+	db.transaction(function(tx){
+		tx.executeSql("CREATE TABLE IF NOT EXISTS VALORES(posx, posy)");
+	});
+	mostrar();
+}
+
+function insertar(){
+	db.transaction(function(tx){
+		tx.executeSql("INSERT INTO VALORES (posx, posy) VALUES('" + posx.value + "' , " + posy.value + ")");
+	});
+	formulario.submit();
+}
+
+function eliminar(){
+	db.transaction(function(tx){
+		tx.executeSql("DELETE FROM VALORES");
+	});
+	formulario.submit();
+}
+
+function mostrar(){
+    var canvas = document.getElementById("canvas");
+    db.transaction(function(tx){
+        tx.executeSql("SELECT * FROM VALORES", [], function(tx, resultados){
+            var len = resultados.rows.length;
+            msg = "<table align=center border=1 width=300>";
+            for(i=0; i<len; i++){
+				msg += "<tr><td>" + resultados.rows.item(i).posx + "</td><td>" + resultados.rows.item(i).posy + "</td><td><input type='button' value='Eliminar' onclick='eliminar()'></td></tr>";
+			}
+            estado.innerHTML += msg;
+            if(resultados.rows.length > 0){
+                if(canvas.getContext){
+                    var ctx = canvas.getContext("2d");
+                    ctx.beginPath();
+                    ctx.moveTo(resultados.rows.item(0).posx,resultados.rows.item(0).posy);
+                    for(i=1; i<len; i++){
+                    ctx.lineTo(resultados.rows.item(i).posx,resultados.rows.item(i).posy);
+                    }
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            }
+        }, null);
+    });
+}
+
+</script>
+</head>
+<body onload="cargar()">
+    <form id="formulario" method="post">
+        <table align="center">
+            <tr><th>Posx</th><th>Posy</th></tr>
+            <tr><td><input id="posx" name="posx"></td><td><input id="posy" name="posy"></td></tr>
+            <tr><td colspan=2 align="center"><input type="button" value="Insertar" onclick="insertar()"></td></tr>
+        </table>
+    </form>
+
+<canvas id="canvas" width="150" height="150"></canvas>
+<div id="estado" name="estado"></div>
+
+
+</body>
+</html>

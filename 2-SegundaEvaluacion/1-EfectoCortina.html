@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Metodos slideUp y slideDown</title>                  <!--Deslizamientos-->
+
+        <style type='text/css'>
+        </style>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script language='JavaScript'>
+
+            $(document).ready(function(){
+
+                $("#Ocultar").click(function(event){
+                    $("#rectangulo").slideUp(4000);
+                });
+
+                $("#Aparecer").click(function(event){
+                    $("#rectangulo").slideDown(2000);
+                });
+
+                $("#lento").click(function(event){
+                    $("#rectangulo").slideUp("slow");  
+                });
+
+                $("#rapido").click(function(event){
+                    $("#rectangulo").slideDown("fast");
+                });
+
+                $("#conMensaje").click(function(event){
+                    $("#rectangulo").slideUp(6000 , function(){
+                        alert("fin");
+                        $("#rectangulo").slideDown(9000);
+                    });
+                });
+
+                $("#Toggle").click(function(event){
+                    $("#rectangulo").slideToggle(3000);
+                });
+
+                $("#Toggle2").click(function(event){
+                    $("#rectangulo").toggle(3000);
+                });
+            });
+
+
+        </script>
+    </head>
+
+    <body>
+        <input type="button" id="Ocultar"    value="Ocultar en 4000 milisegundos">
+        <input type="button" id="Aparecer"   value="Mostrar en 2000 milisegundos">
+        <input type="button" id="lento"      value="Ocultar Lento">
+        <input type="button" id="rapido"     value="Mostrar rapido">
+        <input type="button" id="conMensaje" value="Mensaje final">
+        <input type="button" id="Toggle"     value="Efecto toogle">
+        <input type="button" id="Toggle2"     value="Efecto toogle total">
+
+        <div id="rectangulo" style="padding: 500px 30px 30px 300px; background-color: gold;"></div>
+
+    </body>
+</html>
+
+<!--$(window)--><!--$("#rectangulo")--><!--$(".clase")--><!--documet es pareccido a body-->

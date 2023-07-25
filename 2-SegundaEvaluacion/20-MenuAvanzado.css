@@ -1,0 +1,57 @@
+ul.tabs{
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 32px;
+    width: 600px;
+    margin-top: -7;
+}
+
+ul.tabs li{
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: 31px;
+    line-height: 31px;
+    border: 1px solid rgb(3, 3, 3);
+    margin-bottom: -1;
+    background: rgb(3,3,3);
+    overflow: hidden;
+    position: relative;
+    border-radius: 7px 7px 0px 0px;
+}
+
+ul.tabs li a {      /*La pestña que se ve*/
+    color: #FFF;
+    text-decoration: none;
+    font-size: 13px;
+    display: block;
+    padding: 0 20px;
+}
+/* pading da espacio entre lo difernetes menus ,, text decoration  le quita el subrrayado a los enlaces */
+
+ul.tabs li a:hover{
+    background: #666;
+}
+/*cambiamos el color de fondo al poner/sacar el raton por encio¡ma del menu */
+
+.contenedor{            
+    float: left;
+    clear: both;
+    width: 600px;
+    height: 500px;
+    display: block;
+    border: 1px solid #333;
+    border-radius: 0px, 7px,7px,7px;/*redondear los bordes*/
+    background: linear-gradient(#FFFFFF,#CCCCCC);
+    padding: 30px;
+}
+
+li.activa a {       /*Objeto de marca a dentro del list item que sea de clase activa*/
+    color: #333;
+    font-weight: bold;
+    background-color: #CCC;
+    border-bottom: 1px solid #CCC;
+    
+}
